@@ -1,12 +1,8 @@
-- hosts: Evan-Desktop
+- hosts: localhost
   connection: local
   become: true
 
-  pre_tasks:
-    - name: update
-      apt:
-        update_cache: yes
-      changed_when: False
-
   tasks:
-    - include: tasks/packages.yml
+    - name: Install htop
+      apt:
+        name: htop
